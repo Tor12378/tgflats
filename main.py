@@ -1,5 +1,5 @@
 import telebot
-import flats
+from telegram_bot_calendar import DetailedTelegramCalendar, LSTEP
 from telebot import types
 bot = telebot.TeleBot('6189070272:AAGodOjSPW6u-Vg_rcvktvJmq3hsshzxRb8')
 
@@ -20,5 +20,9 @@ def welcome(message):
         text="Kot"
         with open('img.png', 'rb') as photo:
             bot.send_photo(message.chat.id, photo, caption=text)
+    if message.text == "К":
+        def start(m):
+        calendar, step = DetailedTelegramCalendar().build()
+
 
 bot.infinity_polling()
